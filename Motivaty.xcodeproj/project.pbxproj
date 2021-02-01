@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485C4EBA25C8650C0040781D /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485C4EB925C8650C0040781D /* AddViewController.swift */; };
 		48B457C225C5D7A3006666C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C125C5D7A3006666C4 /* AppDelegate.swift */; };
 		48B457C425C5D7A3006666C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C325C5D7A3006666C4 /* SceneDelegate.swift */; };
 		48B457C625C5D7A3006666C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C525C5D7A3006666C4 /* MainViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		485C4EB925C8650C0040781D /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		48B457BE25C5D7A3006666C4 /* Motivaty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivaty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B457C125C5D7A3006666C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B457C325C5D7A3006666C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				48B457C525C5D7A3006666C4 /* MainViewController.swift */,
 				48B4581A25C845AC006666C4 /* ToDoCell.swift */,
+				485C4EB925C8650C0040781D /* AddViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				48B457C625C5D7A3006666C4 /* MainViewController.swift in Sources */,
 				48B457C225C5D7A3006666C4 /* AppDelegate.swift in Sources */,
+				485C4EBA25C8650C0040781D /* AddViewController.swift in Sources */,
 				48B457CC25C5D7A3006666C4 /* Motivaty.xcdatamodeld in Sources */,
 				48B457C425C5D7A3006666C4 /* SceneDelegate.swift in Sources */,
 				48B4581C25C845AC006666C4 /* ToDoCell.swift in Sources */,

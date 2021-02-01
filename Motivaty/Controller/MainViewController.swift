@@ -20,10 +20,6 @@ class MainViewController: UIViewController {
         bottomView.layer.cornerRadius = 30
         bottomView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
-
-    @IBAction func addButtonPressed(_ sender: UIButton) {
-        
-    }
     
 }
 
