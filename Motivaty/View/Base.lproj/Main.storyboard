@@ -60,6 +60,9 @@
                                                         <state key="normal">
                                                             <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wh1-3P-Tc4"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THINGS TO DO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2n1-R2-FST">
                                                         <rect key="frame" x="110.33333333333334" y="24.333333333333343" width="125.66666666666666" height="21.666666666666671"/>
@@ -106,6 +109,10 @@
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="YzF-SX-hUx" id="E6p-nc-Dca"/>
+                        <outlet property="firstLabel" destination="bm4-PT-Url" id="xgk-1P-Jfc"/>
+                        <outlet property="imageView" destination="Wsh-hd-Be0" id="Ad7-K6-I6u"/>
+                        <outlet property="secondLabel" destination="2F9-VV-BPF" id="Dnc-P2-0yz"/>
+                        <outlet property="tableView" destination="XBq-3o-UVr" id="Dyn-pW-Tug"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -117,10 +124,10 @@
         <image name="doge" width="132" height="178"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="BackgroundColor">
-            <color red="0.98039215686274506" green="0.84705882352941175" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98000001907348633" green="0.84700000286102295" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BackgroundSecondColor">
-            <color red="0.63921568627450975" green="0.50588235294117645" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63899999856948853" green="0.50599998235702515" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

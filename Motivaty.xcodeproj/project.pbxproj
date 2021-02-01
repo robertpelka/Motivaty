@@ -16,6 +16,8 @@
 		48B457D125C5D7A4006666C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B457CF25C5D7A4006666C4 /* LaunchScreen.storyboard */; };
 		48B457DC25C5D7A4006666C4 /* MotivatyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457DB25C5D7A4006666C4 /* MotivatyTests.swift */; };
 		48B457E725C5D7A4006666C4 /* MotivatyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457E625C5D7A4006666C4 /* MotivatyUITests.swift */; };
+		48B4581C25C845AC006666C4 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4581A25C845AC006666C4 /* ToDoCell.swift */; };
+		48B4581D25C845AC006666C4 /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B4581B25C845AC006666C4 /* ToDoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		48B457E225C5D7A4006666C4 /* MotivatyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotivatyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B457E625C5D7A4006666C4 /* MotivatyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivatyUITests.swift; sourceTree = "<group>"; };
 		48B457E825C5D7A4006666C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48B4581A25C845AC006666C4 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		48B4581B25C845AC006666C4 /* ToDoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				48B457C525C5D7A3006666C4 /* MainViewController.swift */,
+				48B4581A25C845AC006666C4 /* ToDoCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				48B457C725C5D7A3006666C4 /* Main.storyboard */,
+				48B4581B25C845AC006666C4 /* ToDoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				48B457D125C5D7A4006666C4 /* LaunchScreen.storyboard in Resources */,
 				48B457CE25C5D7A4006666C4 /* Assets.xcassets in Resources */,
 				48B457C925C5D7A3006666C4 /* Main.storyboard in Resources */,
+				48B4581D25C845AC006666C4 /* ToDoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +296,7 @@
 				48B457C225C5D7A3006666C4 /* AppDelegate.swift in Sources */,
 				48B457CC25C5D7A3006666C4 /* Motivaty.xcdatamodeld in Sources */,
 				48B457C425C5D7A3006666C4 /* SceneDelegate.swift in Sources */,
+				48B4581C25C845AC006666C4 /* ToDoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

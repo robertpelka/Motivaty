@@ -9,7 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +21,9 @@ class MainViewController: UIViewController {
         bottomView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 
-
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        
+    }
+    
 }
 
