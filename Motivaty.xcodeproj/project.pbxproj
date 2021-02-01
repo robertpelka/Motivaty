@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		48B457C225C5D7A3006666C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C125C5D7A3006666C4 /* AppDelegate.swift */; };
 		48B457C425C5D7A3006666C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C325C5D7A3006666C4 /* SceneDelegate.swift */; };
-		48B457C625C5D7A3006666C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C525C5D7A3006666C4 /* ViewController.swift */; };
+		48B457C625C5D7A3006666C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C525C5D7A3006666C4 /* MainViewController.swift */; };
 		48B457C925C5D7A3006666C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B457C725C5D7A3006666C4 /* Main.storyboard */; };
 		48B457CC25C5D7A3006666C4 /* Motivaty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48B457CA25C5D7A3006666C4 /* Motivaty.xcdatamodeld */; };
 		48B457CE25C5D7A4006666C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B457CD25C5D7A4006666C4 /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		48B457BE25C5D7A3006666C4 /* Motivaty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivaty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B457C125C5D7A3006666C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B457C325C5D7A3006666C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		48B457C525C5D7A3006666C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		48B457C525C5D7A3006666C4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		48B457C825C5D7A3006666C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48B457CB25C5D7A3006666C4 /* Motivaty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Motivaty.xcdatamodel; sourceTree = "<group>"; };
 		48B457CD25C5D7A4006666C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		48B457F725C5D7D4006666C4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				48B457C525C5D7A3006666C4 /* ViewController.swift */,
+				48B457C525C5D7A3006666C4 /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48B457C625C5D7A3006666C4 /* ViewController.swift in Sources */,
+				48B457C625C5D7A3006666C4 /* MainViewController.swift in Sources */,
 				48B457C225C5D7A3006666C4 /* AppDelegate.swift in Sources */,
 				48B457CC25C5D7A3006666C4 /* Motivaty.xcdatamodeld in Sources */,
 				48B457C425C5D7A3006666C4 /* SceneDelegate.swift in Sources */,
