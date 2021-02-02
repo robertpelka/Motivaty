@@ -196,6 +196,9 @@
                                                                         <state key="normal" title="Change emoji">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="changeEmojiPressed:" destination="Fpb-fI-jeW" eventType="touchUpInside" id="CIz-x3-YRR"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -238,6 +241,9 @@
                                                                         <state key="normal" title="Everyday 18:00">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="timePressed:" destination="Fpb-fI-jeW" eventType="touchUpInside" id="wVT-CX-ZYf"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6o-rr-GR8">
                                                                         <rect key="frame" x="132.33333333333337" y="10.666666666666686" width="132.66666666666663" height="29"/>
@@ -245,6 +251,9 @@
                                                                         <state key="normal" title="Disable">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="disableReminderPressed:" destination="Fpb-fI-jeW" eventType="touchUpInside" id="Iuo-ei-JIV"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -276,6 +285,9 @@
                                         <state key="normal" title="Add a habit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addButtonPressed:" destination="Fpb-fI-jeW" eventType="touchUpInside" id="pkw-Vi-w0q"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -291,6 +303,10 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="f17-0l-1kw" id="3pw-Mp-yjP"/>
+                        <outlet property="disableReminderButton" destination="Q6o-rr-GR8" id="Byw-AB-CZb"/>
+                        <outlet property="emojiLabel" destination="cFv-eQ-yDg" id="eZf-pa-n8G"/>
+                        <outlet property="reminderButton" destination="v0s-Oa-K4d" id="P40-qY-xgw"/>
+                        <outlet property="titleField" destination="PR2-4f-Tbd" id="qcq-Ov-4r2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1V-hT-htv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -310,7 +326,7 @@
             <color red="0.63899999856948853" green="0.50599998235702515" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="buttonColor">
-            <color red="0.16470588235294117" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.16500000655651093" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
