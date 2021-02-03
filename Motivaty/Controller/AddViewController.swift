@@ -5,8 +5,8 @@
 //  Created by Robert Pelka on 01/02/2021.
 //
 
-import UserNotifications
 import UIKit
+import UserNotifications
 
 class AddViewController: UIViewController {
 
@@ -28,13 +28,16 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleField.delegate = self
+        
         addButton.layer.cornerRadius = addButton.frame.size.height/2
+        
         // Request authorization to display alerts
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
             if let e = error {
                 print(e.localizedDescription)
             }
         }
+        
         // Dismiss iOS Keyboard when touching anywhere outside UITextField
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
@@ -45,6 +48,7 @@ class AddViewController: UIViewController {
         picker.delegate = self
         picker.dataSource = self
         picker.tag = tag
+        picker.setValue(UIColor.black, forKey: "textColor")
         picker.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.95)
         picker.contentMode = .center
         picker.frame = CGRect.init(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
@@ -81,9 +85,42 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        
+        if let title = titleField.text, !title.isEmpty {
+            let newHabit = Habit(context: self.context)
+            newHabit.title = title
+            newHabit.emoji = emojis[selectedEmojiRow]
+            // Setting notification
+            if (isReminderSet) {
+                let notificationContent = UNMutableNotificationContent()
+                notificationContent.title = "\(emojis[selectedEmojiRow]) Reminder"
+                notificationContent.body = title
+                notificationContent.sound = .default
+                notificationContent.badge = NSNumber(value: 1)
+                
+                var time = DateComponents()
+                time.hour = hour
+                time.minute = minute
+                
+                let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
+                let notificationID = UUID().uuidString
+                newHabit.notificationID = notificationID
+                let notificationRequest = UNNotificationRequest(identifier: notificationID, content: notificationContent, trigger: notificationTrigger)
+                UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+                    if let e = error {
+                        print(e.localizedDescription)
+                    }
+                }
+            }
+            do {
+                try context.save()
+            }
+            catch {
+                print("Error saving context, \(error)")
+            }
+            dismiss(animated: true, completion: nil)
+        }
     }
-    
+
 }
 
 //MARK: - UITextFieldDelegate

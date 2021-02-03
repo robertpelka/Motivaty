@@ -5,12 +5,13 @@
         <relationship name="doneHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="doneDates" inverseEntity="Habit"/>
     </entity>
     <entity name="Habit" representedClassName="Habit" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" attributeType="String"/>
         <attribute name="emoji" attributeType="String"/>
+        <attribute name="notificationID" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
         <relationship name="doneDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Date" inverseName="doneHabit" inverseEntity="Date"/>
     </entity>
     <elements>
-        <element name="Habit" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Date" positionX="-261.9298095703125" positionY="-6.256134033203125" width="128" height="73"/>
+        <element name="Habit" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>
