@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4818986925CAE3160005F986 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4818986825CAE3160005F986 /* Constants.swift */; };
 		485C4EBA25C8650C0040781D /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485C4EB925C8650C0040781D /* AddViewController.swift */; };
 		48B457C225C5D7A3006666C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C125C5D7A3006666C4 /* AppDelegate.swift */; };
 		48B457C425C5D7A3006666C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B457C325C5D7A3006666C4 /* SceneDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4818986825CAE3160005F986 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		485C4EB925C8650C0040781D /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		48B457BE25C5D7A3006666C4 /* Motivaty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivaty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B457C125C5D7A3006666C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				48B457CD25C5D7A4006666C4 /* Assets.xcassets */,
 				48B457CF25C5D7A4006666C4 /* LaunchScreen.storyboard */,
 				48B457D225C5D7A4006666C4 /* Info.plist */,
+				4818986825CAE3160005F986 /* Constants.swift */,
 			);
 			path = Motivaty;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				48B457C225C5D7A3006666C4 /* AppDelegate.swift in Sources */,
 				485C4EBA25C8650C0040781D /* AddViewController.swift in Sources */,
 				48B457CC25C5D7A3006666C4 /* Motivaty.xcdatamodeld in Sources */,
+				4818986925CAE3160005F986 /* Constants.swift in Sources */,
 				48B457C425C5D7A3006666C4 /* SceneDelegate.swift in Sources */,
 				48B4581C25C845AC006666C4 /* ToDoCell.swift in Sources */,
 			);

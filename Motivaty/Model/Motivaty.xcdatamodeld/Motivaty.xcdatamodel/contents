@@ -11,7 +11,7 @@
         <relationship name="doneDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Date" inverseName="doneHabit" inverseEntity="Date"/>
     </entity>
     <elements>
-        <element name="Date" positionX="-261.9298095703125" positionY="-6.256134033203125" width="128" height="73"/>
+        <element name="Date" positionX="-261.9298095703125" positionY="-6.256134033203125" width="128" height="59"/>
         <element name="Habit" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

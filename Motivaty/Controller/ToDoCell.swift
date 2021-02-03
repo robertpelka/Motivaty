@@ -9,11 +9,19 @@ import UIKit
 
 class ToDoCell: UITableViewCell {
 
-    @IBOutlet weak var cellView: ToDoCell!
+    @IBOutlet weak var bgView: UIView!
+    
+    @IBOutlet weak var emojiLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var streakLabel: UILabel!
+    @IBOutlet weak var streakImage: UIImageView!
+    @IBOutlet weak var doneImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cellView.layer.cornerRadius = 15
+        if let view = bgView {
+            view.layer.cornerRadius = 15
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
