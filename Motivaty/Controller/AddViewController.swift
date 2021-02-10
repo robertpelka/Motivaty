@@ -31,16 +31,19 @@ class AddViewController: UIViewController {
         
         addButton.layer.cornerRadius = addButton.frame.size.height/2
         
-        // Request authorization to display alerts
+        requestAuthForNotifications()
+        
+        // Dismiss iOS Keyboard when touching anywhere outside UITextField
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    func requestAuthForNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
             if let e = error {
                 print(e.localizedDescription)
             }
         }
-        
-        // Dismiss iOS Keyboard when touching anywhere outside UITextField
-        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tapGesture)
     }
     
     func showPickerView(with tag: Int) {
@@ -111,13 +114,18 @@ class AddViewController: UIViewController {
                     }
                 }
             }
-            do {
-                try context.save()
-            }
-            catch {
-                print("Error saving context, \(error)")
-            }
-            dismiss(animated: true, completion: nil)
+            
+            saveContext()
+            self.performSegue(withIdentifier: K.Segues.goBackToMain, sender: self)
+        }
+    }
+    
+    func saveContext() {
+        do {
+            try context.save()
+        }
+        catch {
+            print("Error saving context, \(error)")
         }
     }
 

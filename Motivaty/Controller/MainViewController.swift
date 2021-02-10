@@ -101,6 +101,15 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToMainViewController(segue: UIStoryboardSegue) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                self.loadHabits()
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
 }
 
 //MARK: - UITableViewDataSource

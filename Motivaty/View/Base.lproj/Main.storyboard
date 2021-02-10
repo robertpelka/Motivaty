@@ -61,7 +61,7 @@
                                                             <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="Fpb-fI-jeW" kind="presentation" id="Dln-tf-u20"/>
+                                                            <segue destination="Fpb-fI-jeW" kind="presentation" identifier="" id="Dln-tf-u20"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THINGS TO DO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2n1-R2-FST">
@@ -79,7 +79,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="whg-BB-fIU"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="112" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XBq-3o-UVr">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="112" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XBq-3o-UVr">
                                                 <rect key="frame" x="0.0" y="100" width="346" height="530"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
@@ -307,9 +307,11 @@
                         <outlet property="emojiLabel" destination="cFv-eQ-yDg" id="eZf-pa-n8G"/>
                         <outlet property="reminderButton" destination="v0s-Oa-K4d" id="P40-qY-xgw"/>
                         <outlet property="titleField" destination="PR2-4f-Tbd" id="qcq-Ov-4r2"/>
+                        <segue destination="IRE-mt-9Em" kind="unwind" identifier="goBackToMain" unwindAction="unwindToMainViewControllerWithSegue:" id="34K-Ri-xNO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1V-hT-htv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="IRE-mt-9Em" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="546.15384615384619" y="92.417061611374407"/>
         </scene>
