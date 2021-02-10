@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Date" representedClassName="Date" syncable="YES" codeGenerationType="class">
+    <entity name="Habit" representedClassName="Habit" syncable="YES" codeGenerationType="class">
+        <attribute name="emoji" attributeType="String"/>
+        <attribute name="isDone" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="notificationID" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="doneDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HabitDate" inverseName="doneHabit" inverseEntity="HabitDate"/>
+    </entity>
+    <entity name="HabitDate" representedClassName="HabitDate" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="doneHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="doneDates" inverseEntity="Habit"/>
     </entity>
-    <entity name="Habit" representedClassName="Habit" syncable="YES" codeGenerationType="class">
-        <attribute name="emoji" attributeType="String"/>
-        <attribute name="notificationID" optional="YES" attributeType="String"/>
-        <attribute name="title" attributeType="String"/>
-        <relationship name="doneDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Date" inverseName="doneHabit" inverseEntity="Date"/>
-    </entity>
     <elements>
-        <element name="Date" positionX="-261.9298095703125" positionY="-6.256134033203125" width="128" height="59"/>
-        <element name="Habit" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Habit" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="HabitDate" positionX="-261.9298095703125" positionY="-6.256134033203125" width="128" height="59"/>
     </elements>
 </model>
