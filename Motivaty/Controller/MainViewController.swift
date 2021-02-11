@@ -29,8 +29,20 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.Cell.cellNibName, bundle: nil), forCellReuseIdentifier: K.Cell.cellIdentifier)
         
-        loadHabits()
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: Notification.Name("sceneWillEnterForeground"), object: nil)
+    }
+    
+    @objc func willEnterForeground() {
         refreshHabits()
+    }
+    
+    func refreshHabits() {
+        DispatchQueue.main.async {
+            self.loadHabits()
+            self.checkIfHabitsDone()
+            self.countStreak()
+            self.changeTitle()
+        }
     }
     
     func loadHabits() {
@@ -43,19 +55,14 @@ class MainViewController: UIViewController {
         }
     }
     
-    func refreshHabits() {
-        DispatchQueue.main.async {
-            self.checkIfHabitsDone()
-            self.countStreak()
-            self.changeTitle()
-        }
-    }
-    
     func checkIfHabitsDone() {
         for habit in habits {
             habit.isDone = false
-            if let lastHabitDate = habit.doneDates?.allObjects.last {
-                if let lastDate = (lastHabitDate as! HabitDate).date {
+            if let habitDates = habit.doneDates?.allObjects as? [HabitDate] {
+                let sortedHabitDates = habitDates.sorted {
+                    ($0.date ?? Date()) < ($1.date ?? Date())
+                }
+                if let lastDate = sortedHabitDates.last?.date {
                     let lastDateStripped = stripTime(from: lastDate)
                     let today = stripTime(from: Date())
                     if (lastDateStripped == today) {
@@ -72,20 +79,33 @@ class MainViewController: UIViewController {
         for habit in habits {
             var streak = 0
             var day = Date()
-            if let habitDates = habit.doneDates?.allObjects {
-                for habitDate in habitDates.reversed() {
-                    if let date = (habitDate as! HabitDate).date {
-                        let dayStripped = stripTime(from: day)
-                        let dateStripped = stripTime(from: date)
-                        if (dayStripped == dateStripped) {
-                            streak += 1
-                        }
-                        else {
-                            break
-                        }
-                        let dayComponent = DateComponents(day: -1)
-                        if let dayMinusDay = Calendar.current.date(byAdding: dayComponent, to: day) {
-                            day = dayMinusDay
+            if let habitDates = habit.doneDates?.allObjects as? [HabitDate] {
+                let sortedHabitDates = habitDates.sorted {
+                    ($0.date ?? Date()) > ($1.date ?? Date())
+                }
+                for habitDate in sortedHabitDates {
+                    if let date = habitDate.date {
+                        if let dayStripped = stripTime(from: day), let dateStripped = stripTime(from: date) {
+                            if (dayStripped == dateStripped) {
+                                streak += 1
+                            }
+                            else if (habitDate == sortedHabitDates.first) {
+                                let dayComponent = DateComponents(day: -1)
+                                if let dayMinusDay = Calendar.current.date(byAdding: dayComponent, to: day) {
+                                    day = dayMinusDay
+                                }
+                                let dayStripped = stripTime(from: day)
+                                if (dayStripped == dateStripped) {
+                                    streak += 1
+                                }
+                            }
+                            else {
+                                break
+                            }
+                            let dayComponent = DateComponents(day: -1)
+                            if let dayMinusDay = Calendar.current.date(byAdding: dayComponent, to: day) {
+                                day = dayMinusDay
+                            }
                         }
                     }
                 }
@@ -172,15 +192,21 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let habit = habits[indexPath.row]
-        print("SELECT")
+        
         if (!habit.isDone) {
             let newHabitDate = HabitDate(context: self.context)
             newHabitDate.date = Date()
             newHabitDate.doneHabit = habit
         }
         else {
-            let delete = habit.doneDates?.allObjects.last as! NSManagedObject
-            context.delete(delete)
+            if let habitDates = habit.doneDates?.allObjects as? [HabitDate] {
+                let sortedHabitDates = habitDates.sorted {
+                    ($0.date ?? Date()) < ($1.date ?? Date())
+                }
+                if let lastHabitDate = sortedHabitDates.last {
+                    context.delete(lastHabitDate as NSManagedObject)
+                }
+            }
         }
         
         saveContext()
