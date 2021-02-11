@@ -30,8 +30,7 @@ class MainViewController: UIViewController {
         tableView.register(UINib(nibName: K.Cell.cellNibName, bundle: nil), forCellReuseIdentifier: K.Cell.cellIdentifier)
         
         loadHabits()
-        checkIfHabitsDone()
-        changeTitle()
+        refreshHabits()
     }
     
     func loadHabits() {
@@ -44,8 +43,17 @@ class MainViewController: UIViewController {
         }
     }
     
+    func refreshHabits() {
+        DispatchQueue.main.async {
+            self.checkIfHabitsDone()
+            self.countStreak()
+            self.changeTitle()
+        }
+    }
+    
     func checkIfHabitsDone() {
         for habit in habits {
+            habit.isDone = false
             if let lastHabitDate = habit.doneDates?.allObjects.last {
                 if let lastDate = (lastHabitDate as! HabitDate).date {
                     let lastDateStripped = stripTime(from: lastDate)
@@ -55,12 +63,35 @@ class MainViewController: UIViewController {
                     }
                 }
             }
-            else {
-                habit.isDone = false
-            }
         }
         tableView.reloadData()
         changeTitle()
+    }
+    
+    func countStreak() {
+        for habit in habits {
+            var streak = 0
+            var day = Date()
+            if let habitDates = habit.doneDates?.allObjects {
+                for habitDate in habitDates.reversed() {
+                    if let date = (habitDate as! HabitDate).date {
+                        let dayStripped = stripTime(from: day)
+                        let dateStripped = stripTime(from: date)
+                        if (dayStripped == dateStripped) {
+                            streak += 1
+                        }
+                        else {
+                            break
+                        }
+                        let dayComponent = DateComponents(day: -1)
+                        if let dayMinusDay = Calendar.current.date(byAdding: dayComponent, to: day) {
+                            day = dayMinusDay
+                        }
+                    }
+                }
+            }
+            habit.streak = Int64(streak)
+        }
     }
     
     func stripTime(from originalDate: Date) -> Date? {
@@ -127,6 +158,8 @@ extension MainViewController: UITableViewDataSource {
         cell.emojiLabel.text = habit.emoji
         cell.titleLabel.text = habit.title
         cell.doneImage.image = habit.isDone ? UIImage(named: K.Images.done) : UIImage(named: K.Images.notDone)
+        cell.streakImage.image = (habit.streak < 13) ? UIImage(named: "streak\(habit.streak)") : UIImage(named: "streak13")
+        cell.streakLabel.text = (habit.streak == 1) ? "1 day streak" : "\(habit.streak) days streak"
         
         return cell
     }
@@ -139,7 +172,7 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let habit = habits[indexPath.row]
-        
+        print("SELECT")
         if (!habit.isDone) {
             let newHabitDate = HabitDate(context: self.context)
             newHabitDate.date = Date()
@@ -151,7 +184,7 @@ extension MainViewController: UITableViewDelegate {
         }
         
         saveContext()
-        checkIfHabitsDone()
+        refreshHabits()
     }
     
     func saveContext() {

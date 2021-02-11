@@ -4,6 +4,7 @@
         <attribute name="emoji" attributeType="String"/>
         <attribute name="isDone" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="notificationID" optional="YES" attributeType="String"/>
+        <attribute name="streak" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="doneDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HabitDate" inverseName="doneHabit" inverseEntity="HabitDate"/>
     </entity>
@@ -12,7 +13,7 @@
         <relationship name="doneHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="doneDates" inverseEntity="Habit"/>
     </entity>
     <elements>
-        <element name="Habit" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Habit" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="HabitDate" positionX="-261.9298095703125" positionY="-6.256134033203125" width="128" height="59"/>
     </elements>
 </model>
