@@ -78,10 +78,12 @@ class AddViewController: UIViewController {
         if (isReminderSet) {
             let hourString = String(format: "%02d", hour)
             let minuteString = String(format: "%02d", minute)
+            reminderButton.isEnabled = true
             reminderButton.setTitle("Everyday \(hourString):\(minuteString)", for: .normal)
             disableReminderButton.setTitle("Disable", for: .normal)
         }
         else {
+            reminderButton.isEnabled = false
             reminderButton.setTitle("None", for: .normal)
             disableReminderButton.setTitle("Enable", for: .normal)
         }

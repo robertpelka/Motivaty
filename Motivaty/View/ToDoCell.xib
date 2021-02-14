@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPZ-we-aLt">
-                        <rect key="frame" x="0.0" y="0.0" width="401" height="100"/>
+                        <rect key="frame" x="0.0" y="11.5" width="401" height="100"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tda-a6-3f7">
                                 <rect key="frame" x="20" y="20" width="361" height="60"/>
@@ -77,8 +77,8 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="QPZ-we-aLt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FcO-0h-SWD"/>
+                    <constraint firstItem="QPZ-we-aLt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Jkh-hx-3mC"/>
                     <constraint firstAttribute="trailing" secondItem="QPZ-we-aLt" secondAttribute="trailing" id="UuZ-fF-eHg"/>
-                    <constraint firstItem="QPZ-we-aLt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lxw-JK-sTy"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

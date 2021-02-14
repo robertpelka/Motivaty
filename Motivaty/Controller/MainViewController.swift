@@ -11,8 +11,10 @@ import CoreData
 class MainViewController: UIViewController {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let defaults = UserDefaults.standard
     
     var habits = [Habit]()
+    var userName = ""
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var firstLabel: UILabel!
@@ -28,8 +30,38 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.Cell.cellNibName, bundle: nil), forCellReuseIdentifier: K.Cell.cellIdentifier)
+     
+        if let name = defaults.string(forKey: "UserName") {
+            userName = " \(name)"
+        }
+        else {
+            DispatchQueue.main.async {
+                self.askForName()
+            }
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: Notification.Name("sceneWillEnterForeground"), object: nil)
+    }
+    
+    func askForName() {
+        let alert = UIAlertController(title: "What is your name?", message: "", preferredStyle: .alert)
+        
+        var textField = UITextField()
+        alert.addTextField { (alertTextField) in
+            textField.placeholder = "First name"
+            textField = alertTextField
+        }
+        
+        let saveName = UIAlertAction(title: "Save name", style: .default) { (action) in
+            if let name = textField.text, name != "" {
+                self.defaults.set(name, forKey: "UserName")
+                self.userName = " \(name)"
+                self.changeTitle()
+            }
+        }
+        
+        alert.addAction(saveName)
+        present(alert, animated: true, completion: nil)
     }
     
     @objc func willEnterForeground() {
@@ -141,14 +173,14 @@ class MainViewController: UIViewController {
         }
         
         if (habits.count == 0) {
-            firstLabel.text = "Hi Robert, add some things to do"
+            firstLabel.text = "Hi\(userName), add some things to do"
             secondLabel.text = "Press plus button"
         }
         else if (habitsLeft == 1) {
-            firstLabel.text = "Hi Robert, there is 1\(more) thing to do today"
+            firstLabel.text = "Hi\(userName), there is 1\(more) thing to do today"
         }
         else if (habitsLeft > 1) {
-            firstLabel.text = "Hi Robert, there are \(habitsLeft)\(more) things to do today"
+            firstLabel.text = "Hi\(userName), there are \(habitsLeft)\(more) things to do today"
         }
     }
     
@@ -220,6 +252,25 @@ extension MainViewController: UITableViewDelegate {
         catch {
             print("Error saving context, \(error)")
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, boolValue) in
+            let habit = self.habits[indexPath.row]
+            
+            if let notificationID = habit.notificationID {
+                let notificationCenter = UNUserNotificationCenter.current()
+                notificationCenter.removePendingNotificationRequests(withIdentifiers: [notificationID])
+            }
+            
+            self.context.delete(habit)
+            self.saveContext()
+            self.refreshHabits()
+        }
+        delete.backgroundColor = UIColor.red
+        let swipeActions = UISwipeActionsConfiguration(actions: [delete])
+        
+        return swipeActions
     }
     
 }
